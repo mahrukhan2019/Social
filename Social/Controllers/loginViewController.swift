@@ -18,12 +18,10 @@ class loginViewController: UIViewController {
     }
     
 
-    
     @IBOutlet weak var emailOutlet: UITextField!
     @IBOutlet weak var passwordOutlet: UITextField!
     
-    
-   @IBAction func registerButton(_ sender: UIButton) {
+    @IBAction func LoginButton(_ sender: UIButton) {
     
        
        //if the outlets are empty don't do anything
@@ -36,20 +34,22 @@ class loginViewController: UIViewController {
                 //assign the variables to the text fields
            if  let email = emailOutlet.text, let password = passwordOutlet.text{
                 //////////////////////////////////////////////////////////////////////
-           //sign in user
          Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
-              guard let strongSelf = self else { return }
-            
-            
-            }
-           
-               self.parent?.dismiss(animated: true) {
-               self.performSegue(withIdentifier: "go", sender: self)
-               }
-               }
-               
-           
+             guard let strongSelf = self else { return }
+             // ...
+           if let error = error {
+            print(error)
+             return
            }
+           strongSelf.navigationController?.popViewController(animated: true)
+            strongSelf.performSegue(withIdentifier: "go", sender: self)
+
+            }
+               
+         
+           }
+        
+                            
        }
        
    }
@@ -58,4 +58,4 @@ class loginViewController: UIViewController {
     
     
 
-
+}
