@@ -166,7 +166,7 @@ class messagetableViewController: UITableViewController{
         
         do {
             try Auth.auth().signOut()
-            performSegue(withIdentifier: "gotoLogin1", sender: self)
+            performSegue(withIdentifier: "go", sender: self)
         } catch let logouterror {
             print(logouterror)
         }

@@ -29,7 +29,7 @@ override func viewWillAppear(_ animated: Bool) {
     navigation()
     }
 
-  func navigation() {
+   func navigation() {
          if let loadedData = UserDefaults.standard.data(forKey: "chosenBackground"), let backColor = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: loadedData), let loadedData1 = UserDefaults.standard.data(forKey: "chosenText"),let textColor = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: loadedData1)
              
          {

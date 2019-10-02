@@ -2,11 +2,12 @@
 //  AppDelegate.swift
 //  Social
 //
-//  Created by Mahrukh on 9/28/19.
+//  Created by Mahrukh on 10/2/19.
 //  Copyright © 2019 Mahrukh. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
         return true
     }
 

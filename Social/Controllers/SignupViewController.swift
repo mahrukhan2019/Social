@@ -25,6 +25,7 @@ class SignupViewController: UIViewController {
    // var password:String?
     //////////////////////////////////////////////////////////////////////
     //outlets
+    
     @IBOutlet weak var emailOutlet: UITextField!
     @IBOutlet weak var passwordOutlet: UITextField!
     //////////////////////////////////////////////////////////////////////
