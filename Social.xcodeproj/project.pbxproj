@@ -119,9 +119,9 @@
 		0CBA70652345312300700E07 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0CBA70662345312300700E07 /* SignupViewController.swift */,
 				0CBA706B2345312300700E07 /* initialViewController.swift */,
 				0CCA1405234541AB0090F7CA /* loginViewController.swift */,
+				0CBA70662345312300700E07 /* SignupViewController.swift */,
 				0CBA70672345312300700E07 /* getusernameViewController.swift */,
 				0CBA70682345312300700E07 /* friendsViewController.swift */,
 				0CBA70692345312300700E07 /* friendsListTableViewController.swift */,

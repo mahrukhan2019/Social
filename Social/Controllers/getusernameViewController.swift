@@ -24,8 +24,7 @@ class getusernameViewController: UIViewController {
         let name = getNameUser.text!
         
         
-        let dictionary = ["Username": name]
-        Database.database().reference().child("Users").child(userID).setValue(dictionary)
+        Database.database().reference().child("Users").child(userID).child("Username").setValue(name)
         
         
         self.performSegue(withIdentifier: "go", sender: self)

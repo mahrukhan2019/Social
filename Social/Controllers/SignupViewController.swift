@@ -32,37 +32,37 @@ class SignupViewController: UIViewController {
     //functions
     @IBAction func registerButton(_ sender: UIButton) {
      
-        
-        //if the outlets are empty don't do anything
-        if( emailOutlet.text == "" || passwordOutlet.text == ""){
-            
-        }
-            //otherwise continue
-        else {
+       
+       
             //////////////////////////////////////////////////////////////////////
                  //assign the variables to the text fields
-            if  let email = emailOutlet.text, let password = passwordOutlet.text{
+           guard let email = emailOutlet.text, let password = passwordOutlet.text else {
+            
+            return
+        }
+        
+         if(email != "" && password != "") {
                  //////////////////////////////////////////////////////////////////////
-            //sign up user
+        //sign up user
             Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
                 // ...
                 guard let _ = authResult?.user, error == nil else {
                   return
                 }
+                
                     //user is found
                 let uid = Auth.auth().currentUser?.uid
-                let dictionary = ["email": email]
-                Database.database().reference().child("Users").child(uid!).setValue(dictionary)
-                self.parent?.dismiss(animated: true) {
+                Database.database().reference().child("Users").child(uid!).child("email").setValue(email)
+              
+                self.parent?.dismiss(animated: true){
                 self.performSegue(withIdentifier: "go", sender: self)
+                
                 }
-                }
+            
+            }
                 
             )
-            //////////////////////////////////////////////////////////////////////
             }
-        }
-        
     }
     
 }
