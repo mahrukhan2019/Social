@@ -31,21 +31,29 @@ class SignupViewController: UIViewController {
     //////////////////////////////////////////////////////////////////////
     //functions
     @IBAction func registerButton(_ sender: UIButton) {
-     
-       
-       
-            //////////////////////////////////////////////////////////////////////
+        
+        
+        
+        //if the outlets are empty don't do anything
+              if( emailOutlet.text == "" || passwordOutlet.text == ""){
+                  
+              }
+        
+        
+              else {
+       //////////////////////////////////////////////////////////////////////
                  //assign the variables to the text fields
            guard let email = emailOutlet.text, let password = passwordOutlet.text else {
             
             return
         }
-        
-         if(email != "" && password != "") {
+      
+      
                  //////////////////////////////////////////////////////////////////////
         //sign up user
-            Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
+            Auth.auth().createUser(withEmail: email, password: password, completion: {[weak self] authResult, error in
                 // ...
+                 guard let strongSelf = self else { return }
                 guard let _ = authResult?.user, error == nil else {
                   return
                 }
@@ -53,16 +61,11 @@ class SignupViewController: UIViewController {
                     //user is found
                 let uid = Auth.auth().currentUser?.uid
                 Database.database().reference().child("Users").child(uid!).child("email").setValue(email)
-              
-                self.parent?.dismiss(animated: true){
-                self.performSegue(withIdentifier: "go", sender: self)
+                 strongSelf.navigationController?.popViewController(animated: true)
+                 strongSelf.performSegue(withIdentifier: "go", sender: self)
                 
-                }
-            
-            }
-                
-            )
-            }
+            })
+    }
     }
     
 }

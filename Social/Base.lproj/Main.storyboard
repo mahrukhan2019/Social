@@ -828,7 +828,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="registerButton:" destination="TQv-rd-bgf" eventType="touchUpInside" id="Luj-Ow-LiR"/>
-                                    <segue destination="xMl-IB-Ho4" kind="presentation" identifier="go" id="7lp-VM-zRH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -850,6 +849,7 @@
                     <connections>
                         <outlet property="emailOutlet" destination="Fq9-S8-Hk2" id="R9y-59-gf1"/>
                         <outlet property="passwordOutlet" destination="WII-WG-fX8" id="CWP-DS-R4t"/>
+                        <segue destination="xMl-IB-Ho4" kind="presentation" identifier="go" id="YX8-41-u7X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YLI-Ud-2xY" sceneMemberID="firstResponder"/>
@@ -888,7 +888,7 @@
         <image name="setting" width="49" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="g49-Ya-ceJ"/>
+        <segue reference="ZCk-7M-EfQ"/>
         <segue reference="S3V-Si-8Xi"/>
     </inferredMetricsTieBreakers>
 </document>
