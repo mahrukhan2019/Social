@@ -18,6 +18,8 @@ class friendsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
+        nameofFriend.backgroundColor = .gray
+        nameofFriend.textColor = .black
         //navigation bar
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
 

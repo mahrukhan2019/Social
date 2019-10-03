@@ -25,11 +25,8 @@ class friendsListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+       
+
         navigationItem.title = "Friends"
         fetchUser()
         
@@ -52,9 +49,11 @@ class friendsListTableViewController: UITableViewController {
      }
     
     func fetchUser(){
-        let userid = Auth.auth().currentUser?.uid
+        guard let userid = Auth.auth().currentUser?.uid else {
+            return
+        }
         
-        Database.database().reference().child("Users").child(userid!).child("Friends").observe(.childAdded, with: { (snapshot) in
+        Database.database().reference().child("Users").child(userid).child("Friends").observe(.childAdded, with: { (snapshot) in
             
             // Get user value
             if let value = snapshot.value as? NSDictionary  {
@@ -93,9 +92,11 @@ class friendsListTableViewController: UITableViewController {
         
         let user = friends[indexPath.row]
         print(user)
+        cell.selectionStyle = .default
+
         cell.textLabel?.text = user.name
         cell.detailTextLabel?.text = user.email
-        // Configure the cell...
+ 
         
         return cell
     }

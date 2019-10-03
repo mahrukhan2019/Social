@@ -23,6 +23,7 @@ class messagetableViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
+        
         navigation()
         let uid = Auth.auth().currentUser?.uid
         
@@ -45,6 +46,8 @@ class messagetableViewController: UITableViewController{
         
         
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         viewDidLoad()
@@ -226,7 +229,8 @@ class messagetableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
         let message = messages[indexPath.row]
-        cell.message = message
+        cell.selectionStyle = .default
+    cell.message = message
         return cell
     }
     

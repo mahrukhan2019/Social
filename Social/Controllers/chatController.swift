@@ -95,6 +95,8 @@ class chatController: UICollectionViewController, UITextFieldDelegate, UICollect
         
         //-----------------------------------Add input textfield--------------------------------
         containerView.addSubview(self.inputTextField)
+        self.inputTextField.backgroundColor = .white
+        self.inputTextField.textColor = .black
         //x,y,w,h constraint anchors for input textfield
         self.inputTextField.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 8).isActive = true
         self.inputTextField.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true

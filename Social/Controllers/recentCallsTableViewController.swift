@@ -18,10 +18,7 @@ class recentCallsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getrecentdata()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -97,18 +94,24 @@ class recentCallsTableViewController: UITableViewController {
         return recents.count
     }
     
+
     
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      let cell = tableView.dequeueReusableCell(withIdentifier: "cellid", for: indexPath)
      
         let recentcall = recents[indexPath.row]
-        
+        cell.selectionStyle = .default
         cell.textLabel?.text = recentcall.phone
-        
-     
      return cell
      }
      
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+           return 72
+       }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recentcall = self.recents[indexPath.row]
         let number = recentcall.phone

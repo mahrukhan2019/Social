@@ -26,8 +26,8 @@ class getusernameViewController: UIViewController {
         
         Database.database().reference().child("Users").child(userID).child("Username").setValue(name)
         
-        
-        self.performSegue(withIdentifier: "go", sender: self)
+       self.navigationController?.popViewController(animated: true)
+    self.performSegue(withIdentifier: "go", sender: self)
     }
     
 }

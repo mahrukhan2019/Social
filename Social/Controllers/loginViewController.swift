@@ -41,8 +41,10 @@ class loginViewController: UIViewController {
             print(error)
              return
            }
-           strongSelf.navigationController?.popViewController(animated: true)
-            strongSelf.performSegue(withIdentifier: "go", sender: self)
+            strongSelf.parent?.dismiss(animated: true) {
+                strongSelf.performSegue(withIdentifier: "go", sender: self)
+
+            }
 
             }
                
